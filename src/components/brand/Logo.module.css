@@ -1,0 +1,7 @@
+.logo {
+  display: block;
+  aspect-ratio: 535 / 154;
+  background: currentColor;
+  -webkit-mask: url("/brand/gs9-logo.svg") center / contain no-repeat;
+  mask: url("/brand/gs9-logo.svg") center / contain no-repeat;
+}

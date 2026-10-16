@@ -1,0 +1,41 @@
+.page {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: calc(var(--header-h) + clamp(48px, 7vw, 96px)) var(--gutter) clamp(72px, 9vw, 140px);
+}
+
+.header {
+  margin-bottom: clamp(36px, 5vw, 64px);
+}
+
+.title {
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-size: clamp(52px, 9vw, 128px);
+  font-weight: 300;
+  line-height: 0.95;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 40px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.description {
+  max-width: 46ch;
+  color: var(--bone-dim);
+}
+
+.count {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--mist);
+}

@@ -1,0 +1,118 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.media {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background:
+    radial-gradient(70% 55% at 50% 62%, color-mix(in srgb, var(--accent) 34%, transparent), transparent 70%),
+    linear-gradient(to bottom, var(--ink-3), var(--ink-2));
+  border: 1px solid var(--line);
+  transition: border-color 0.5s var(--ease-out);
+}
+
+.media::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 12%;
+  width: 46%;
+  height: 4%;
+  translate: -50% 0;
+  background: radial-gradient(closest-side, rgb(0 0 0 / 0.7), transparent);
+}
+
+.index {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  color: var(--bone-faint);
+}
+
+.bottle {
+  position: relative;
+  z-index: 1;
+  height: 66%;
+  width: auto;
+  transition: transform 0.8s var(--ease-out);
+}
+
+.body {
+  padding-top: 18px;
+}
+
+.head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2vw, 28px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.price {
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.tagline {
+  margin-top: 4px;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-style: italic;
+  color: var(--bone-dim);
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--mist);
+}
+
+@media (hover: hover) {
+  .card:hover .media {
+    border-color: color-mix(in srgb, var(--accent-light) 40%, transparent);
+  }
+
+  .card:hover .bottle {
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
+@media (max-width: 599px) {
+  .index {
+    top: 10px;
+    left: 12px;
+    font-size: 10px;
+  }
+
+  .head {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .tagline {
+    display: none;
+  }
+}
