@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     default: "GS9 — Lo que queda cuando te vas",
     template: "%s — GS9",
   },
-  description: "Perfumes intensos, hechos para la noche y para durar más que ella.",
+  description: "Perfumes originales, elegidos para durar más que la noche.",
 };
 
 export const viewport: Viewport = {

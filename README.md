@@ -1,6 +1,6 @@
 # GS9 — Tienda online de perfumes
 
-Sitio de e-commerce de **GS9**. Por ahora la marca vende solo perfumes, pero el catálogo está modelado por categorías para poder sumar otras.
+Sitio de e-commerce de **GS9**, que vende perfumes originales de otras casas (sobre todo árabes). Por ahora solo perfumes, pero el catálogo está modelado por categorías para poder sumar otras.
 
 La dirección creativa (análisis de referencias, paleta, tipografía, decisiones de UX/CRO y riesgos) está en [`docs/direccion-creativa.md`](docs/direccion-creativa.md).
 
@@ -26,7 +26,7 @@ npm run format       # Prettier
 ```
 src/
   app/
-    page.tsx              Home: hero, colección y manifiesto
+    page.tsx              Home: hero, selección y manifiesto
     [category]/page.tsx   Listado por categoría (/perfumes, y las que se agreguen)
     layout.tsx            Fuentes, metadata, header y footer
     globals.css           Tokens de marca y estilos base
@@ -34,8 +34,9 @@ src/
     brand/                Logo (SVG como máscara) e íconos
     home/                 Secciones de la home
     layout/               Header (con menú móvil) y footer
-    product/              Frasco, tarjeta y grilla de productos
-  data/catalog.ts         Categorías y productos (placeholders)
+    product/              Tarjeta y grilla de productos
+  assets/products/        Fotos de producto procesadas
+  data/catalog.ts         Categorías y productos
   lib/format.ts           Moneda y formato de precios
 public/brand/             Logo vectorial
 docs/                     Dirección creativa
@@ -48,10 +49,16 @@ docs/                     Dirección creativa
 
 La ruta `/<slug>` se genera sola y aparece en el footer.
 
-## Placeholders a reemplazar antes de publicar
+## Agregar un producto
 
-- **Productos, notas y precios** de `src/data/catalog.ts`: son de maqueta.
-- **Frasco SVG** (`src/components/product/Bottle.tsx`): reemplazarlo por fotografía real de producto.
+1. Poner la foto (cuadrada, idealmente de 1600 px o más) en `src/assets/products/<slug>.jpg`.
+2. Importarla en `src/data/catalog.ts` y sumar el producto al array `products` con su marca, nombre y los datos que estén confirmados. Lo que falte (precio, volumen, concentración) puede quedar sin cargar.
+
+## Pendiente antes de publicar
+
+- **Precios:** ningún producto tiene precio cargado; se muestran como "a confirmar".
+- **Datos que no se ven en las fotos:** volumen de Odyssey Mandarin Sky, Amber Oud Black Edition y Le Male Elixir; concentración de Amber Oud Black Edition y Le Male Elixir.
+- **Fotos de producto** (`src/assets/products/`): están mejoradas a partir de originales de 560 px. Conviene reemplazarlas por las fotos oficiales en alta resolución de cada marca o distribuidor.
 - **Foto del hero** (`src/assets/hero-skyline.jpg`): se desconoce su licencia. Hay que reemplazarla por una foto propia o licenciada.
 - **Moneda** (`src/lib/format.ts`): se asume ARS.
 

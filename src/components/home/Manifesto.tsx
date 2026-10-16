@@ -13,11 +13,11 @@ export function Manifesto() {
           Manifiesto
         </h2>
         <p className={styles.statement}>
-          <span>No hacemos perfumes para pasar desapercibido.</span>{" "}
+          <span>No vendemos perfumes para pasar desapercibido.</span>{" "}
           <span>
-            Los hacemos para <em>lo que viene después:</em>
+            Elegimos <em>los que se quedan:</em>
           </span>{" "}
-          <span>cuando baja la luz, la ciudad se enciende</span> <span>y alguien todavía recuerda cómo olías.</span>
+          <span>los que siguen ahí cuando baja la luz</span> <span>y alguien todavía recuerda cómo olías.</span>
         </p>
       </div>
     </section>

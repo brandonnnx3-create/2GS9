@@ -1,15 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import skyline from "@/assets/hero-skyline.jpg";
-import { Logo } from "@/components/brand/Logo";
 import { ArrowIcon } from "@/components/brand/ArrowIcon";
-import { Bottle } from "@/components/product/Bottle";
-import { getHeroProduct } from "@/data/catalog";
+import { Logo } from "@/components/brand/Logo";
+import { describeProduct, getHeroProduct } from "@/data/catalog";
 import styles from "./Hero.module.css";
 
 export function Hero() {
   const product = getHeroProduct();
-  const caption = `${product.concentration} · ${product.volumeMl} ml`;
 
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
@@ -22,33 +20,23 @@ export function Hero() {
       <div className={styles.frame}>
         <Logo className={styles.wordmark} />
 
-        <div className={styles.stage}>
-          <div className={styles.halo} aria-hidden />
-          <Bottle
-            id="hero"
-            liquid={product.liquid}
-            number={product.number}
-            name={product.name}
-            caption={caption}
-            className={styles.bottle}
+        <figure className={styles.stage}>
+          <Image
+            src={product.heroImage}
+            alt={`${product.brand} ${product.name}`}
+            fill
+            priority
+            sizes="(min-width: 1024px) 240px, 40vw"
+            className={styles.product}
           />
-          <Bottle
-            id="hero-reflejo"
-            liquid={product.liquid}
-            number={product.number}
-            name={product.name}
-            caption={caption}
-            className={styles.reflection}
-            decorative
-          />
-        </div>
+        </figure>
 
         <div className={styles.copy}>
-          <p className={`eyebrow ${styles.eyebrow}`}>Colección 01 — Eau de Parfum</p>
+          <p className={`eyebrow ${styles.eyebrow}`}>Perfumes originales</p>
           <h1 id="hero-title" className={styles.title}>
             Lo que queda <em>cuando te vas.</em>
           </h1>
-          <p className={styles.lede}>Perfumes intensos, hechos para la noche y para durar más que ella.</p>
+          <p className={styles.lede}>Perfumes originales, elegidos para durar más que la noche.</p>
           <Link href="/perfumes" className={styles.cta}>
             Explorar perfumes
             <ArrowIcon className={styles.ctaIcon} />
@@ -56,11 +44,11 @@ export function Hero() {
         </div>
 
         <div className={styles.aside}>
-          <p className="eyebrow">En el frasco</p>
+          <p className="eyebrow">En la foto</p>
           <p className={styles.asideName}>
-            Nº {product.number} — {product.name}
+            {product.brand} — {product.name}
           </p>
-          <p className={styles.asideNotes}>{product.notes.join(" · ")}</p>
+          <p className={styles.asideNotes}>{describeProduct(product)}</p>
         </div>
       </div>
     </section>
